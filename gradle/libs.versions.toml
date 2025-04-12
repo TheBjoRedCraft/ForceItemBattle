@@ -1,0 +1,15 @@
+[versions]
+paper-api = "1.21.4-R0.1-SNAPSHOT"
+
+commandapi = "10.0.0"
+
+plugin-yml-paper = "0.7.0"
+
+[libraries]
+paper-api = { module = "io.papermc.paper:paper-api", version.ref = "paper-api" }
+
+commandapi-bukkit = { module = "dev.jorel:commandapi-bukkit-plugin", version.ref = "commandapi" }
+commandapi-bukkit-kotlin = { module = "dev.jorel:commandapi-bukkit-kotlin", version.ref = "commandapi" }
+
+[plugins]
+plugin-yml-paper = { id = "de.eldoria.plugin-yml.paper", version.ref = "plugin-yml-paper" }

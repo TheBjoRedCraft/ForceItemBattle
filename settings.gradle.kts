@@ -6,4 +6,3 @@ rootProject.name = "ForceItemBattle"
 include("force-item-battle-api")
 include("force-item-battle-core")
 include("force-item-battle-paper")
-include("force-item-battle-api")
