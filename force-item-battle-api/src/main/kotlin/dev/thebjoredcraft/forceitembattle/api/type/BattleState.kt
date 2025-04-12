@@ -1,4 +1,4 @@
-package dev.thebjoredcraft.forceitembattle.type
+package dev.thebjoredcraft.forceitembattle.api.type
 
 enum class BattleState {
     LOBBY,
