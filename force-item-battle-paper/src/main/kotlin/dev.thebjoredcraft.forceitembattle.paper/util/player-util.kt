@@ -2,6 +2,7 @@ package dev.thebjoredcraft.forceitembattle.paper.util
 
 import dev.thebjoredcraft.forceitembattle.api.model.BattlePlayer
 import dev.thebjoredcraft.forceitembattle.core.playerManager
+import net.kyori.adventure.text.Component
 import org.bukkit.Bukkit
 import org.bukkit.entity.Player
 
@@ -15,4 +16,16 @@ fun BattlePlayer.toPlayer(): Player? {
 
 fun BattlePlayer.edit(block: BattlePlayer.() -> Unit): BattlePlayer {
     return playerManager.editPlayer(this, block)
+}
+
+fun Player.sendText(component: Component) {
+    this.sendMessage(Colors.PREFIX.append(component))
+}
+
+fun Player.sendText(messageBuilder: MessageBuilder) {
+    this.sendMessage(Colors.PREFIX.append(messageBuilder.build()))
+}
+
+fun Player.sendRawText(component: Component) {
+    this.sendMessage(component)
 }

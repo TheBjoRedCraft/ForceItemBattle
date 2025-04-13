@@ -35,6 +35,7 @@ paper {
 dependencies {
     compileOnly(libs.paper.api)
     compileOnly(libs.commandapi.bukkit.kotlin)
+    compileOnly(libs.commandapi.bukkit)
 
     api(project(":force-item-battle-core"))
     implementation(libs.kotlinxCoroutines.core)
