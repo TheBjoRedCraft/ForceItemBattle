@@ -4,5 +4,5 @@ import it.unimi.dsi.fastutil.objects.ObjectList
 
 interface BattlePlacement {
     val placement: Int
-    val succeededTasks: ObjectList<SucceedTask>
+    val succeededTasks: ObjectList<BattleTask>
 }
