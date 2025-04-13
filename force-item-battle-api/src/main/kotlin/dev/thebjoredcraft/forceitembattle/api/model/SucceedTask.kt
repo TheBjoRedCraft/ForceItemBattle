@@ -4,4 +4,5 @@ import org.bukkit.inventory.ItemStack
 
 interface SucceedTask {
     val item: ItemStack
+    val skipped: Boolean
 }

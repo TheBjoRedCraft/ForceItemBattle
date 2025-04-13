@@ -2,14 +2,27 @@
 paper-api = "1.21.4-R0.1-SNAPSHOT"
 
 commandapi = "10.0.0"
+kotlinxCoroutines = "1.10.1"
 
 plugin-yml-paper = "0.7.0"
+mccoroutine = "2.20.0"
+
+caffeine = "3.1.8"
+caffeine-courotines = "2.0.2"
 
 [libraries]
 paper-api = { module = "io.papermc.paper:paper-api", version.ref = "paper-api" }
 
 commandapi-bukkit = { module = "dev.jorel:commandapi-bukkit-plugin", version.ref = "commandapi" }
 commandapi-bukkit-kotlin = { module = "dev.jorel:commandapi-bukkit-kotlin", version.ref = "commandapi" }
+
+kotlinxCoroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }
+
+mccoroutine-folia-api = { module = "com.github.shynixn.mccoroutine:mccoroutine-folia-api", version.ref = "mccoroutine" }
+mccoroutine-folia-core = { module = "com.github.shynixn.mccoroutine:mccoroutine-folia-core", version.ref = "mccoroutine" }
+
+caffeine = { module = "com.github.ben-manes.caffeine:caffeine", version.ref = "caffeine" }
+caffeine-courotines = { module = "com.sksamuel.aedile:aedile-core", version.ref = "caffeine-courotines" }
 
 [plugins]
 plugin-yml-paper = { id = "de.eldoria.plugin-yml.paper", version.ref = "plugin-yml-paper" }
