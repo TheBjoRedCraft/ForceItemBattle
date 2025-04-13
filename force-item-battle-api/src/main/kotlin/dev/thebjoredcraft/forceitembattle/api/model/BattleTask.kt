@@ -5,9 +5,11 @@ import org.bukkit.inventory.ItemStack
 
 interface BattleTask {
     val item: Material
-    val skipped: Boolean
-    val completed: Boolean
+    var skipped: Boolean
+    var completed: Boolean
 
-    val completedAfter: Long
-    val completedBy: String
+    var completedAfter: Long
+    var completedBy: String
+
+    fun edit(block: BattleTask.() -> BattleTask)
 }
