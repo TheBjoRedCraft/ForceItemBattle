@@ -11,7 +11,6 @@ import dev.thebjoredcraft.forceitembattle.paper.util.sendText
 class FIBSkipCommand(commandName: String): CommandAPICommand(commandName) {
     init {
         withPermission("forceitembattle.command.skip")
-
         playerExecutor { player, _ ->
             plugin.launch {
                 val team = teamManager.getTeam(player.uniqueId) ?: return@launch player.sendText(
