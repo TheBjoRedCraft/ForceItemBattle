@@ -13,4 +13,17 @@ class BukkitStorageManager(): StorageManager, Fallback {
     override suspend fun save() {
         TODO("Not yet implemented")
     }
+
+    /**
+     *
+     * Stuff that has to be stored:
+     *
+     * - Battle configuration
+     * - Battle state
+     * - Battle teams
+     * - Battle items
+     * - Battle players
+     * - Battle scores
+     *
+     */
 }
