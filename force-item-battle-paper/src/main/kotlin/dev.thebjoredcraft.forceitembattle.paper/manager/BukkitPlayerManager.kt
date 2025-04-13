@@ -15,4 +15,9 @@ class BukkitPlayerManager(): PlayerManager, Fallback {
     override fun getPlayer(uuid: UUID): BattlePlayer {
         return playerList[uuid] ?: BukkitBattlePlayer(uuid)
     }
+
+    fun editPlayer(player: BattlePlayer, block: (BattlePlayer) -> Unit) {
+        block(player)
+        playerList[player.uuid] = player
+    }
 }
