@@ -36,7 +36,7 @@ dependencies {
     compileOnly(libs.paper.api)
     compileOnly(libs.commandapi.bukkit.kotlin)
 
-    implementation(project(":force-item-battle-core"))
+    api(project(":force-item-battle-core"))
     implementation(libs.kotlinxCoroutines.core)
     implementation(libs.mccoroutine.folia.api)
     implementation(libs.mccoroutine.folia.core)

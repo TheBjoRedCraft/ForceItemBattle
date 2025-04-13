@@ -7,12 +7,14 @@ import java.util.UUID
 interface ForceItemManager {
     suspend fun loadItems()
 
-    suspend fun isOverworldItem(item: Material)
-    suspend fun isNetherItem(item: Material)
-    suspend fun isEndItem(item: Material)
+    suspend fun isOverworldItem(item: Material): Boolean
+    suspend fun isNetherItem(item: Material): Boolean
+    suspend fun isEndItem(item: Material): Boolean
 
-    suspend fun getCurrentItem(uuid: UUID)
-    suspend fun getNewItem(uuid: UUID)
+    suspend fun getCurrentItem(uuid: UUID): Material?
+    suspend fun getNewItem(uuid: UUID): Material?
+
+    suspend fun markAsFinished(skipped: Boolean, completer: String)
 
     companion object {
         val INSTANCE: ForceItemManager = Services.serviceWithFallback(ForceItemManager::class.java).orElseThrow { IllegalStateException("There is no fallback service for ${this::class.java.name} available.") }

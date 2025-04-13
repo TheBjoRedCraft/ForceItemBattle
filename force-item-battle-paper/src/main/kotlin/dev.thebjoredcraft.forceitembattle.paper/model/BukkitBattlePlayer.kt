@@ -6,7 +6,7 @@ import java.util.*
 
 class BukkitBattlePlayer(
     override val uuid: UUID,
-    override var role: BattleRole
+    override var role: BattleRole = BattleRole.NONE
 ): BattlePlayer {
 
 }

@@ -6,6 +6,7 @@ import it.unimi.dsi.fastutil.objects.ObjectList
 
 class BukkitBattleTeam (
     override var size: Int,
-    override val players: ObjectList<BattlePlayer>
+    override val players: ObjectList<BattlePlayer>,
+    override var skipsRemaining: Int
 ): BattleTeam {
 }

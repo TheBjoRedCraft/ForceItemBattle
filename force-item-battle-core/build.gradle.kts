@@ -13,7 +13,8 @@ repositories {
 }
 
 dependencies {
-    compileOnly(project(":force-item-battle-api"))
+    api(project(":force-item-battle-api"))
+
     compileOnly(libs.paper.api)
 }
 
