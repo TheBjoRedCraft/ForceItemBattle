@@ -10,10 +10,10 @@ import java.util.*
 
 @AutoService(TeamManager::class)
 class BukkitTeamManager(): TeamManager, Fallback {
-    val teams: ObjectSet<BattleTeam> = ObjectArraySet()
+    private val teams: ObjectSet<BattleTeam> = ObjectArraySet()
 
-    override suspend fun getTeam(uuid: UUID) {
-        teams.filter { it.players.contains() }
+    override suspend fun getTeam(uuid: UUID): BattleTeam? {
+        return teams.firstOrNull { it.hasPlayer(uuid) }
     }
 
     override suspend fun getTeams(): ObjectSet<BattleTeam> {

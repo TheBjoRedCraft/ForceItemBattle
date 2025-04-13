@@ -6,7 +6,7 @@ import net.kyori.adventure.util.Services
 import java.util.UUID
 
 interface TeamManager {
-    suspend fun getTeam(uuid: UUID)
+    suspend fun getTeam(uuid: UUID): BattleTeam?
     suspend fun getTeams(): ObjectSet<BattleTeam>
 
     suspend fun joinTeam(uuid: UUID, team: BattleTeam)
