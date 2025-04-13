@@ -11,7 +11,7 @@ interface TeamManager {
 
     suspend fun joinTeam(uuid: UUID, team: BattleTeam)
     suspend fun leaveTeam(uuid: UUID, team: BattleTeam)
-    suspend fun editTeam(team: BattleTeam, edit: (BattleTeam) -> Unit): BattleTeam
+    fun editTeam(team: BattleTeam, edit: (BattleTeam) -> Unit): BattleTeam
 
     suspend fun loadTeams()
     suspend fun saveTeams()

@@ -28,7 +28,7 @@ class BukkitTeamManager(): TeamManager, Fallback {
         TODO("Not yet implemented")
     }
 
-    override suspend fun editTeam(team: BattleTeam, edit: (BattleTeam) -> Unit): BattleTeam {
+    override fun editTeam(team: BattleTeam, edit: (BattleTeam) -> Unit): BattleTeam {
         TODO("Not yet implemented")
     }
 

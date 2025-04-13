@@ -5,6 +5,8 @@ import dev.jorel.commandapi.CommandAPICommand
 import dev.jorel.commandapi.kotlindsl.playerExecutor
 import dev.thebjoredcraft.forceitembattle.core.teamManager
 import dev.thebjoredcraft.forceitembattle.paper.plugin
+import dev.thebjoredcraft.forceitembattle.paper.util.MessageBuilder
+import dev.thebjoredcraft.forceitembattle.paper.util.sendText
 
 class FIBSkipCommand(commandName: String): CommandAPICommand(commandName) {
     init {
@@ -12,9 +14,18 @@ class FIBSkipCommand(commandName: String): CommandAPICommand(commandName) {
 
         playerExecutor { player, _ ->
             plugin.launch {
-                val team = teamManager.getTeam(player.uniqueId) ?: return@launch
+                val team = teamManager.getTeam(player.uniqueId) ?: return@launch player.sendText(
+                    MessageBuilder().error("Du bist in keinem Team.")
+                )
 
-                if(team)
+                if(team.skipsRemaining < 1) {
+                    player.sendText(MessageBuilder().error("Du hast nicht genug Skips übrig."))
+                    return@launch
+                }
+
+                team.update {
+                    skipsRemaining--
+                }
             }
         }
     }

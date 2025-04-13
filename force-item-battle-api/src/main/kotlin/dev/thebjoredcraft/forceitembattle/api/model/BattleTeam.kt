@@ -10,4 +10,6 @@ interface BattleTeam {
 
     fun hasPlayer(player: BattlePlayer): Boolean
     fun hasPlayer(uuid: UUID): Boolean
+
+    fun update(action: BattleTeam.() -> Unit)
 }
