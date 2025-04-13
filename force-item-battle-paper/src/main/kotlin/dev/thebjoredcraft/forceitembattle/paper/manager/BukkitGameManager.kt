@@ -36,10 +36,28 @@ class BukkitGameManager(): GameManager, Fallback {
         runnable = object: BukkitRunnable() {
             override fun run() {
                 runningBattle.players.forEach {
-                    it.sendActionbar(MessageBuilder().)
+                    when(runningBattle.state) {
+                        BattleState.LOBBY -> {
+                            it.sendActionbar (
+                                MessageBuilder()
+                            )
+                        }
+                        BattleState.STARTING -> TODO()
+                        BattleState.RUNNING -> TODO()
+                        BattleState.PAUSED -> TODO()
+                        BattleState.EVALUATION -> TODO()
+                        BattleState.ENDING -> TODO()
+
+                        else -> {
+                            /**
+                             * Do nothing
+                             */
+                        }
+                    }
                 }
             }
         }
+        runnable?.runTaskTimerAsynchronously(plugin, 0L, 50L) ?: return@withContext
     }
 
     override suspend fun pause() {
