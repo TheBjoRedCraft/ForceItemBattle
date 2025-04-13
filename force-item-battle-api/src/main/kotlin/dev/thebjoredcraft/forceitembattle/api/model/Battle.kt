@@ -5,7 +5,7 @@ import it.unimi.dsi.fastutil.objects.ObjectSet
 
 interface Battle {
     val configuration: BattleConfiguration
-    val state: BattleState
+    var state: BattleState
 
     val players: ObjectSet<BattlePlayer>
 }

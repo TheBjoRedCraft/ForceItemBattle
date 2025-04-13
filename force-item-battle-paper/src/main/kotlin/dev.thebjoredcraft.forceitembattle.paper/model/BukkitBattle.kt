@@ -4,12 +4,13 @@ import dev.thebjoredcraft.forceitembattle.api.model.Battle
 import dev.thebjoredcraft.forceitembattle.api.model.BattleConfiguration
 import dev.thebjoredcraft.forceitembattle.api.model.BattlePlayer
 import dev.thebjoredcraft.forceitembattle.api.type.BattleState
+import it.unimi.dsi.fastutil.objects.ObjectArraySet
 import it.unimi.dsi.fastutil.objects.ObjectSet
 
-class BukkitBattle(
+class BukkitBattle (
     override val configuration: BattleConfiguration,
-    override val state: BattleState,
-    override val players: ObjectSet<BattlePlayer>
+    override var state: BattleState = BattleState.UNDEFINED,
+    override val players: ObjectSet<BattlePlayer> = ObjectArraySet()
 ): Battle {
 
 }

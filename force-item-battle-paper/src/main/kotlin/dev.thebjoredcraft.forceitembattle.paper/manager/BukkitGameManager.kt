@@ -2,38 +2,63 @@ package dev.thebjoredcraft.forceitembattle.paper.manager
 
 import com.google.auto.service.AutoService
 import dev.thebjoredcraft.forceitembattle.api.model.Battle
+import dev.thebjoredcraft.forceitembattle.api.type.BattleDifficulty
+import dev.thebjoredcraft.forceitembattle.api.type.BattleState
 import dev.thebjoredcraft.forceitembattle.core.GameManager
+import dev.thebjoredcraft.forceitembattle.paper.model.BukkitBattle
+import dev.thebjoredcraft.forceitembattle.paper.model.BukkitBattleConfiguration
+import dev.thebjoredcraft.forceitembattle.paper.plugin
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import net.kyori.adventure.util.Services.Fallback
 
 @AutoService(GameManager::class)
 class BukkitGameManager(): GameManager, Fallback {
-    val battle: Battle? = null
+    private var battle: Battle? = null
 
-    override suspend fun start() {
-        TODO("Not yet implemented")
+    override suspend fun start() = withContext(Dispatchers.IO) {
+        battle = BukkitBattle(BukkitBattleConfiguration (
+            plugin.config.getInt("battle.teams.minSize"),
+            plugin.config.getInt("battle.teams.maxSize"),
+            plugin.config.getLong("battle.game.duration"),
+            BattleDifficulty.valueOf(plugin.config.getString("battle.game.difficulity") ?: "EASY"),
+            plugin.config.getInt("battle.game.skipCount"),
+        ))
+
+        val runningBattle = battle ?: return@withContext
+
+        while (runningBattle.state != BattleState.UNDEFINED) {
+            
+        }
     }
 
     override suspend fun pause() {
-        TODO("Not yet implemented")
+        val battle = battle ?: return
+
+        battle.state = BattleState.PAUSED
     }
 
     override suspend fun resume() {
-        TODO("Not yet implemented")
+        val battle = battle ?: return
+
+        battle.state = BattleState.RUNNING
     }
 
     override suspend fun stop() {
-        TODO("Not yet implemented")
+        val battle = battle ?: return
+
+        battle.state = BattleState.ENDING
     }
 
     override suspend fun isRunning(): Boolean {
-        TODO("Not yet implemented")
+        return battle?.state == BattleState.RUNNING
     }
 
     override suspend fun isPaused(): Boolean {
-        TODO("Not yet implemented")
+        return battle?.state == BattleState.PAUSED
     }
 
     override suspend fun getBattle(): Battle? {
-        TODO("Not yet implemented")
+        return battle
     }
 }

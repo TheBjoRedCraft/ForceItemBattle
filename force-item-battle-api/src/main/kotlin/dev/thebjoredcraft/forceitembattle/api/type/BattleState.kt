@@ -6,5 +6,6 @@ enum class BattleState {
     RUNNING,
     PAUSED,
     EVALUATION,
-    ENDING
+    ENDING,
+    UNDEFINED,
 }
