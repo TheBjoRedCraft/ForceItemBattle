@@ -11,10 +11,12 @@ import dev.thebjoredcraft.forceitembattle.paper.plugin
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import net.kyori.adventure.util.Services.Fallback
+import org.bukkit.scheduler.BukkitRunnable
 
 @AutoService(GameManager::class)
 class BukkitGameManager(): GameManager, Fallback {
     private var battle: Battle? = null
+    private var runnable: BukkitRunnable? = null
 
     override suspend fun start() = withContext(Dispatchers.IO) {
         battle = BukkitBattle(BukkitBattleConfiguration (
@@ -27,8 +29,10 @@ class BukkitGameManager(): GameManager, Fallback {
 
         val runningBattle = battle ?: return@withContext
 
-        while (runningBattle.state != BattleState.UNDEFINED) {
-            
+        runnable = object: BukkitRunnable() {
+            override fun run() {
+
+            }
         }
     }
 
