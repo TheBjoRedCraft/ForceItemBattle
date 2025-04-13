@@ -8,6 +8,7 @@ import dev.thebjoredcraft.forceitembattle.core.GameManager
 import dev.thebjoredcraft.forceitembattle.paper.model.BukkitBattle
 import dev.thebjoredcraft.forceitembattle.paper.model.BukkitBattleConfiguration
 import dev.thebjoredcraft.forceitembattle.paper.plugin
+import dev.thebjoredcraft.forceitembattle.paper.util.toPlayer
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import net.kyori.adventure.util.Services.Fallback
@@ -31,7 +32,9 @@ class BukkitGameManager(): GameManager, Fallback {
 
         runnable = object: BukkitRunnable() {
             override fun run() {
+                runningBattle.players.forEach {
 
+                }
             }
         }
     }
