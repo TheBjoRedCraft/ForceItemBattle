@@ -26,6 +26,19 @@ fun Player.sendText(messageBuilder: MessageBuilder) {
     this.sendMessage(Colors.PREFIX.append(messageBuilder.build()))
 }
 
+fun BattlePlayer.sendText(component: Component) {
+    this.toPlayer()?.sendText(component) ?: return
+}
+
+fun BattlePlayer.sendText(messageBuilder: MessageBuilder) {
+    this.toPlayer()?.sendText(messageBuilder) ?: return
+}
+
+fun BattlePlayer.sendActionbar(messageBuilder: MessageBuilder) {
+    val player = this.toPlayer() ?: return
+    player.sendActionBar(messageBuilder.build())
+}
+
 fun Player.sendRawText(component: Component) {
     this.sendMessage(component)
 }
